@@ -56,7 +56,10 @@ sudo dnf install python3-pyqt6 python3-pyqt6-svg
 sudo zypper install python313-PyQt6
 ```
 
-**PikaOS:** Does not work with GUI installer. Use AppImage instead.
+**PikaOS:** 
+```bash
+sudo apt install python3-pyqt6.qtsvg
+```
 
 **Ubuntu 25.10:** If you encounter GUI issues, also install:
 ```bash
