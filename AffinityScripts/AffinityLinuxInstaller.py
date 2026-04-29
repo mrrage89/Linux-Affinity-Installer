@@ -52,7 +52,7 @@ def install_package(package_name, import_name=None):
 
         distro = detect_distro_for_install()
         pip_flags = ["--user"]
-        if distro in ["arch", "cachyos", "manjaro", "endeavouros", "xerolinux"]:
+        if distro in ["arch", "artix", "cachyos", "manjaro", "endeavouros", "xerolinux"]:
             pip_flags.append("--break-system-packages")
         if not sys.stdout.isatty():
             pip_flags.insert(0, "--quiet")
@@ -212,7 +212,7 @@ if not PYQT6_AVAILABLE:
     print("Using pip:")
     print("  pip install --user PyQt6")
     print("\nOr using your distribution's package manager:")
-    print("  Arch/CachyOS/EndeavourOS/XeroLinux: sudo pacman -S python-pyqt6")
+    print("  Arch/Artix/CachyOS/EndeavourOS/XeroLinux: sudo pacman -S python-pyqt6")
     print("  Fedora/Nobara: sudo dnf install python3-pyqt6")
     print("  Debian/Ubuntu/Mint/Pop/Zorin/PikaOS: sudo apt install python3-pyqt6")
     print("  openSUSE: sudo zypper install python313-PyQt6")
@@ -7326,8 +7326,8 @@ class AffinityInstallerGUI(QMainWindow):
                             ]
                         install_cmd = ["sudo", "dnf", "install", "-y"] + amd_deps
 
-                    # Arch-based distributions (Arch, CachyOS, EndeavourOS, XeroLinux)
-                    elif self.distro in ["arch", "cachyos", "endeavouros", "xerolinux"]:
+                    # Arch-based distributions (Arch, Artix, CachyOS, EndeavourOS, XeroLinux)
+                    elif self.distro in ["arch", "artix", "cachyos", "endeavouros", "xerolinux"]:
                         # Arch uses different package names than Fedora
                         amd_deps = [
                             "opencl-mesa",
@@ -8218,6 +8218,24 @@ class AffinityInstallerGUI(QMainWindow):
 
         commands = {
             "arch": [
+                "sudo",
+                "pacman",
+                "-S",
+                "--needed",
+                "--noconfirm",
+                "wine",
+                "winetricks",
+                "wget",
+                "curl",
+                "p7zip",
+                "tar",
+                "jq",
+                "zstd",
+                "dotnet-sdk",
+                "dotnet-sdk-8.0",
+                "dotnet-sdk-10.0",
+            ],
+            "artix": [
                 "sudo",
                 "pacman",
                 "-S",
@@ -12175,7 +12193,7 @@ Would you like to continue with {distro_name} anyway?"""
                 "Wine Not Installed",
                 "System Wine is required for WebView2 Runtime installation.\n\n"
                 "Please install Wine using your distribution's package manager:\n"
-                "  • Arch/CachyOS/EndeavourOS/XeroLinux: sudo pacman -S wine\n"
+                "  • Arch/Artix/CachyOS/EndeavourOS/XeroLinux: sudo pacman -S wine\n"
                 "  • Fedora/Nobara: sudo dnf install wine\n"
                 "  • PikaOS: sudo apt install wine",
             )
