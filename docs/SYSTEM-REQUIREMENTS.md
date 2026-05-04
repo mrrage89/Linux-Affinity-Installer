@@ -5,6 +5,7 @@
 ### Officially Supported
 
 - Arch Linux
+- Artix Linux
 - CachyOS
 - EndeavourOS
 - Fedora

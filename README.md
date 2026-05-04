@@ -41,7 +41,7 @@ curl -sSL https://raw.githubusercontent.com/ryzendew/AffinityOnLinux/refs/heads/
 
 The installer will attempt to install PyQt6 automatically if missing. If automatic installation fails, install it manually:
 
-**Arch/CachyOS/EndeavourOS/XeroLinux:**
+**Arch/Artix/CachyOS/EndeavourOS/XeroLinux:**
 ```bash
 sudo pacman -S python-pyqt6
 ```
